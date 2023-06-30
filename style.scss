@@ -1,0 +1,130 @@
+// Define some variables
+$bg-color: #1a1a1a;
+$text-color: #f0f0f0;
+$padding: 20px;
+$light-bg-color: #333;
+$flex-item-width: calc(33.33% - 40px);
+$breakpoint: 600px;
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+.header,
+.footer {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $padding;
+  text-align: center;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: $padding;
+
+  // Nesting the selectors
+  h2 {
+    margin-bottom: $padding;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    padding: $padding;
+
+    .flex-item {
+      background-color: $light-bg-color;
+      padding: $padding;
+      flex-basis: $flex-item-width;
+      text-align: center;
+    }
+  }
+
+  .flex-container-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $padding;
+
+    .flex-item {
+      order: 3;
+      background-color: $light-bg-color;
+      padding: $padding;
+      text-align: center;
+      margin-bottom: $padding;
+      width: $flex-item-width;
+
+      &:nth-child(1) {
+        order: 3;
+      }
+
+      &:nth-child(2) {
+        order: 2;
+      }
+
+      &:nth-child(3) {
+        order: 1;
+      }
+    }
+  }
+  .flex-container-responsive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $padding;
+
+    .flex-item {
+      background-color: $light-bg-color;
+      padding: $padding;
+      text-align: center;
+      margin-bottom: $padding;
+      width: 100%;
+    }
+
+    @media (min-width: $breakpoint) {
+      flex-direction: row;
+      justify-content: space-between;
+
+      .flex-item {
+        flex-basis: calc(25% - 40px);
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .flex-container-grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: $padding;
+
+    .flex-item {
+      background-color: $light-bg-color;
+      padding: $padding;
+      text-align: center;
+      margin-bottom: $padding;
+      flex-basis: calc(33.33% - 40px);
+    }
+
+    @media (min-width: $breakpoint) {
+      justify-content: space-between;
+
+      .flex-item {
+        flex-basis: calc(32% - 40px);
+      }
+    }
+
+    @media (max-width: $breakpoint) {
+      flex-direction: column;
+      align-items: center;
+
+      .flex-item {
+        flex-basis: auto;
+        width: 100%;
+      }
+    }
+  }
+}

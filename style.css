@@ -1,0 +1,112 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.header,
+.footer {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+.main-content h2 {
+  margin-bottom: 20px;
+}
+.main-content .flex-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.main-content .flex-container .flex-item {
+  background-color: #333;
+  padding: 20px;
+  flex-basis: calc(33.33% - 40px);
+  text-align: center;
+}
+.main-content .flex-container-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.main-content .flex-container-vertical .flex-item {
+  order: 3;
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: calc(33.33% - 40px);
+}
+.main-content .flex-container-vertical .flex-item:nth-child(1) {
+  order: 3;
+}
+.main-content .flex-container-vertical .flex-item:nth-child(2) {
+  order: 2;
+}
+.main-content .flex-container-vertical .flex-item:nth-child(3) {
+  order: 1;
+}
+.main-content .flex-container-responsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.main-content .flex-container-responsive .flex-item {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .main-content .flex-container-responsive {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .main-content .flex-container-responsive .flex-item {
+    flex-basis: calc(25% - 40px);
+    margin-bottom: 0;
+  }
+}
+.main-content .flex-container-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.main-content .flex-container-grid .flex-item {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  flex-basis: calc(33.33% - 40px);
+}
+@media (min-width: 600px) {
+  .main-content .flex-container-grid {
+    justify-content: space-between;
+  }
+  .main-content .flex-container-grid .flex-item {
+    flex-basis: calc(32% - 40px);
+  }
+}
+@media (max-width: 600px) {
+  .main-content .flex-container-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-content .flex-container-grid .flex-item {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
